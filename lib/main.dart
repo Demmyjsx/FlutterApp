@@ -34,7 +34,7 @@ class _myHomePageState extends State<myHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Demmy chat')),
+      appBar: AppBar(title: Text('Demmy Blog')),
       body:
           currentIndex == 0
               ? Center(child: Text('this is a  new page'))
