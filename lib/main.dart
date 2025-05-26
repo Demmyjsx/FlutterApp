@@ -1,56 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertutorial/widgets/navbar_widgets.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+ 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+          seedColor: Colors.amber,
           brightness: Brightness.dark,
         ),
       ),
-      home: myHomePage(),
-    );
-  }
-}
-
-class myHomePage extends StatefulWidget {
-  const myHomePage({super.key});
-
-  @override
-  State<myHomePage> createState() => _myHomePageState();
-}
-
-class _myHomePageState extends State<myHomePage> {
-  int currentIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Demmy Blog')),
-      body:
-          currentIndex == 0
-              ? Center(child: Text('this is a  new page'))
-              : Center(child: Text('this is another page')),
-
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.person_2), label: 'Profile'),
-        ],
-        onDestinationSelected: (int value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        selectedIndex: currentIndex,
+      home: Scaffold(
+        appBar: AppBar(title: Text('Demmy\'s Blog')),
+        bottomNavigationBar: NavbarWidget(),
       ),
     );
   }
@@ -72,7 +48,7 @@ class _myHomePageState extends State<myHomePage> {
 // int age = 99;
 // double fraction = 1.2;
 // List myArr = ['this ', 'is ', "called", "an", 'array', 'in', 'javascript'];
-// Map myMapp = {'this one is like': 'an object'};
+// Map myMapp = {'this one is like': 'an object'      };
 
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
